@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<VBox prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.TaskController">
+    <children>
+        <MenuBar blendMode="MULTIPLY" prefHeight="25.0" prefWidth="700.0" style="-fx-background-color: STEELBLUE; -fx-opacity: 85%;" VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open…" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+                    </items></Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane blendMode="DARKEN" maxHeight="-1.0" maxWidth="-1.0" prefHeight="775.0" prefWidth="700.0" style="-fx-background-color: STEELBLUE; -fx-background-color: LIGHTSTEELBLUE;" VBox.vgrow="ALWAYS">
+            <children>
+                <Button focusTraversable="false" layoutX="611.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="69.0" text="Add" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                <DatePicker fx:id="dateField" editable="false" focusTraversable="false" layoutX="463.0" layoutY="31.0" onKeyPressed="#handleKeyPressed" prefHeight="25.0" prefWidth="146.0" promptText="Enter date" style="-fx-background-color: LightGrey;" AnchorPane.topAnchor="30.0" />
+                <Button fx:id="acButton" focusTraversable="false" layoutX="614.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleArchive" prefHeight="27.0" prefWidth="69.0" text="Archive" AnchorPane.rightAnchor="20.0" />
+                <TextField fx:id="taskField" focusTraversable="false" layoutX="18.0" layoutY="30.0" onKeyPressed="#handleKeyPressed" prefHeight="25.0" prefWidth="428.0" promptText="Enter task" style="-fx-background-color: white; -fx-border-color: LightGrey;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                <Text layoutX="20.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a task:" AnchorPane.leftAnchor="20.0" />
+                <Text layoutX="20.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" AnchorPane.leftAnchor="20.0" />
+                <TextField fx:id="searchField" focusTraversable="false" layoutX="18.0" layoutY="85.0" prefHeight="25.0" prefWidth="428.0" promptText="Enter search terms" style="-fx-border-color: LightGrey;" AnchorPane.leftAnchor="20.0" />
+                <TableView fx:id="taskTable" focusTraversable="false" layoutX="18.0" layoutY="125.0" prefHeight="630.0" prefWidth="663.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="125.0">
+                    <columns>
+                        <TableColumn fx:id="descriptionColumn" editable="false" prefWidth="440.0" resizable="false" sortable="false" style="-fx-alignment: BOTTOM-LEFT;" text="Description" />
+                        <TableColumn fx:id="dateColumn" minWidth="0.0" resizable="false" sortable="false" style="-fx-alignment: BOTTOM-CENTER;" text="Date" />
+                        <TableColumn fx:id="completedColumn" minWidth="0.0" prefWidth="90.5" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Completed" />
+                        <TableColumn fx:id="editColumn" prefWidth="56.5" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Edit" />
+                    </columns>
+                </TableView>
+                <MenuButton fx:id="orderMenu" alignment="CENTER" focusTraversable="false" layoutX="463.0" layoutY="85.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                </MenuButton>
+                <Text layoutX="293.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="463.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ordering: " />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
